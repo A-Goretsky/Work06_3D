@@ -63,21 +63,21 @@ void add_box( struct matrix * edges,
   necessary points
   ====================*/
 void add_sphere( struct matrix * edges,
-		 double cx, double cy, double cz,
-		 double r, double step ) {
+  		 double cx, double cy, double cz,
+  		 double r, double step ) {
 
-	struct matrix *newSpherePoints = generate_sphere(cx, cy, cz, r, step);
-	double x;
-	double y;
-	double z;
-	int ctr;
-	for (ctr = 0; ctr < newSpherePoints->lastcol; ctr++) {
-		x = newSpherePoints->m[0][ctr];
-		y = newSpherePoints->m[1][ctr];
-		z = newSpherePoints->m[2][ctr];
-		add_edge(edges, x, y, z, x + 1, y + 1, z + 1);
-	}
-}
+  	struct matrix *newSpherePoints = generate_sphere(cx, cy, cz, r, step);
+  	double x;
+  	double y;
+  	double z;
+  	int ctr;
+  	for (ctr = 0; ctr < newSpherePoints->lastcol; ctr++) {
+  		x = newSpherePoints->m[0][ctr];
+  		y = newSpherePoints->m[1][ctr];
+  		z = newSpherePoints->m[2][ctr];
+  		add_edge(edges, x, y, z, x + 1, y + 1, z + 1);
+  	}
+  }
 
 /*======== void generate_sphere() ==========
   Inputs:   struct matrix * points
@@ -92,32 +92,32 @@ void add_sphere( struct matrix * edges,
 	   Returns a matrix of those points
   ====================*/
 struct matrix * generate_sphere(double cx, double cy, double cz,
-				double r, double step ) {
-	struct matrix *newSphere = new_matrix(4, 4);
-	ident(newSphere);
-	double x;
-	double y;
-	double z;
-	int ctr1;
-	int ctr2;
+  				double r, double step ) {
+  	struct matrix *newSphere = new_matrix(4, 4);
+  	ident(newSphere);
+  	double x;
+  	double y;
+  	double z;
+  	int ctr1;
+  	int ctr2;
 
-	int num = 1/step;
+  	int num = 1/step;
 
-	for (ctr1 = 0; ctr1 <= num; ctr1++) {
+  	for (ctr1 = 0; ctr1 <= num; ctr1++) {
 
-		double A = ((M_PI * 2)/num) * ctr1;
+  		double A = ((M_PI * 2)/num) * ctr1;
 
-		for (ctr2 = 0; ctr2 <= num; ctr2++) {
+  		for (ctr2 = 0; ctr2 <= num; ctr2++) {
 
-			double B = (M_PI/num) * ctr2;
-			x = r * cos(A) + cx;
-			y = r * sin(A) * cos(B) + cy;
-			z = r * sin(A) * sin(B) + cz;
-			add_point(newSphere, x, y, z);
-		}
-	}
-	return newSphere;
-}
+  			double B = (M_PI/num) * ctr2;
+  			x = r * cos(A) + cx;
+  			y = r * sin(A) * cos(B) + cy;
+  			z = r * sin(A) * sin(B) + cz;
+  			add_point(newSphere, x, y, z);
+  		}
+  	}
+  	return newSphere;
+  }
 
 /*======== void add_torus() ==========
   Inputs:   struct matrix * points

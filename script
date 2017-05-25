@@ -1,0 +1,89 @@
+#Testing box
+box
+0 0 0 100 50 200
+ident
+move
+210 100 0
+rotate
+x 10
+rotate
+y 20
+apply
+display
+clear
+#Testing Sphere y and x rotations/lines
+sphere
+0 0 0 100
+ident
+rotate
+y 90
+move
+210 200 0
+apply
+display
+ident
+rotate
+x 90
+move
+0 200 0
+apply
+display
+#Testing torus
+clear
+torus
+0 0 0 25 150
+ident
+rotate
+y 90
+move
+210 300 0
+apply
+display
+clear
+torus
+0 0 0 25 150
+ident
+rotate
+x 90
+move
+210 300 0
+apply
+display
+clear
+torus
+0 0 0 25 150
+ident
+rotate
+y 90
+rotate
+z 30
+move
+210 300 0
+apply
+display
+clear
+ident
+##FINAL SHAPE
+sphere
+0 100 0 100
+rotate
+x 10
+rotate
+y 20
+apply
+ident
+torus
+0 200 0 25 150
+torus
+0 0 0 25 150
+rotate
+y 90
+rotate
+z 30
+apply
+move
+300 200 0
+apply
+display
+save
+halos.png
